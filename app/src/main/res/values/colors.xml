@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EDEDED</color>
+    <color name="colorPrimaryDark">#EDEDED</color>
+    <color name="colorAccent">#EDEDED</color>
+
+    <color name="colorLine">#E1E1E1</color>
+    <color name="colorLineDark">#AAAAAA</color>
+    <color name="colorBackground">#F7F7F7</color>
+    <color name="colorTextDark">#1A1A1A</color>
+    <color name="colorTextLight">#ACACAC</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorMask">#80000000</color>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="60dp"
+    android:layout_height="30dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/item_popup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextDark"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 条"
+        android:textColor="@color/colorTextDark"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

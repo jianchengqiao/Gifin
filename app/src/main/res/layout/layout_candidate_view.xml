@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/history_height"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:includeFontPadding="false"
+            android:text="来源"
+            android:textColor="@color/colorTextLight"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLine" />
+
+        <RadioGroup
+            android:id="@+id/candidate_group"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/candidate_radio_1"
+                style="@style/ButtonStyleLight"
+                android:text="斗图啦"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/candidate_radio_2"
+                style="@style/ButtonStyleLight"
+                android:text="终结者"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/candidate_radio_3"
+                style="@style/ButtonStyleLight"
+                android:text="逗比"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/candidate_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:includeFontPadding="false"
+            android:text="搜索历史"
+            android:textColor="@color/colorTextLight"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/candidate_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="清空"
+            android:textColor="@color/colorTextLight"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/candidate_title"
+            android:background="@color/colorLine" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/candidate_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/candidate_title" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="20dp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/item_click_view"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/item_history_delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:padding="5dp"
+            android:src="@drawable/icon_delete"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/item_history_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_history_delete"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:ems="1"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="-2dp"
+            android:textColor="@color/colorTextDark"
+            android:textSize="12sp"
+            tools:text="哈哈哈哈哈哈hahahhahahh" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorLine" />
+    </RelativeLayout>
+</RelativeLayout>

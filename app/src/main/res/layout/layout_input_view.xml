@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/bar_height"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+            <com.sohu.inputmethod.sogou.ui.view.CandidateView
+                android:id="@+id/input_candidate_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorBackground"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/input_setting"
+                    android:layout_width="@dimen/bar_height"
+                    android:layout_height="@dimen/bar_height"
+                    android:padding="3dp"
+                    android:src="@drawable/selector_setting_icon"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/input_enter"
+                    style="@style/SearchButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="marquee"
+                    android:hint="@string/hint_type_to_search"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/input_search"
+                    style="@style/SearchButtonStyle"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/button_search" />
+
+                <TextView
+                    android:id="@+id/input_favorite"
+                    style="@style/SearchButtonStyle"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/button_favorite" />
+
+                <TextView
+                    android:id="@+id/input_operation"
+                    style="@style/SearchButtonStyle"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/button_operation" />
+
+                <TextView
+                    android:id="@+id/input_close"
+                    style="@style/SearchButtonStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/button_close" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/content_height"
+        android:background="@color/colorBackground"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <TextView
+            android:id="@+id/input_tip"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:text="@string/tip_search"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="↑     \n点击展开历史\n长按进入设置"
+            android:textColor="@color/colorTextDark"
+            android:textSize="8sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:text="↑\n点击切回默认键盘\n长按选择键盘"
+            android:textColor="@color/colorTextDark"
+            android:textSize="8sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/input_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorLine"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/bar_height"
+            android:visibility="gone"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="5" />
+
+        <ProgressBar
+            android:id="@+id/input_progress"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:indeterminateDrawable="@drawable/progress"
+            android:indeterminateDuration="500"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

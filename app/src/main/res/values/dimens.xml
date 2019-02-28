@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner">2dp</dimen>
+    <dimen name="bar_height">30dp</dimen>
+    <dimen name="button_height">25dp</dimen>
+    <dimen name="content_height">300dp</dimen>
+    <dimen name="history_height">120dp</dimen>
+</resources>
