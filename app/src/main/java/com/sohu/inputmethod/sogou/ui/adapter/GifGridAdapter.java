@@ -1,7 +1,13 @@
 package com.sohu.inputmethod.sogou.ui.adapter;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
+import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +16,16 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.qiao.gifin.R;
+import com.sohu.inputmethod.sogou.App;
 import com.sohu.inputmethod.sogou.Constants;
 import com.sohu.inputmethod.sogou.util.GsonUtil;
 import com.sohu.inputmethod.sogou.util.SharedPrefUtil;
 import com.sohu.inputmethod.sogou.util.ToastUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +52,7 @@ public class GifGridAdapter extends RecyclerView.Adapter<GifGridAdapter.GifHolde
         private ImageView item_gif;
         private View item_cover;
         private TextView item_favorite;
+        private TextView item_save;
         private TextView item_cancel;
 
         GifHolder(@NonNull View itemView) {
@@ -50,6 +61,7 @@ public class GifGridAdapter extends RecyclerView.Adapter<GifGridAdapter.GifHolde
 
             item_cover = itemView.findViewById(R.id.item_cover);
             item_favorite = itemView.findViewById(R.id.item_favorite);
+            item_save = itemView.findViewById(R.id.item_save);
             item_cancel = itemView.findViewById(R.id.item_cancel);
             ViewGroup.LayoutParams layoutParams = item_gif.getLayoutParams();
             int size = (Resources.getSystem().getDisplayMetrics().widthPixels - 4) / 5;
@@ -82,6 +94,37 @@ public class GifGridAdapter extends RecyclerView.Adapter<GifGridAdapter.GifHolde
                     favorite(url);
                 }
                 ToastUtil.showToast(mIsFavorite ? "已删除" : "已收藏");
+            });
+            item_save.setOnClickListener(v -> {
+                Glide.with(itemView.getContext())
+                        .load(url)
+                        .downloadOnly(new SimpleTarget<File>() {
+                            @Override
+                            public void onResourceReady(File resource, GlideAnimation<? super File> glideAnimation) {
+                                item_cover.setVisibility(View.GONE);
+                                if (ActivityCompat.checkSelfPermission(itemView.getContext(),
+                                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                    ToastUtil.showToast("请打开外部储存权限");
+                                    return;
+                                }
+                                File dir = new File(Environment.getExternalStorageDirectory(), "Gifin");
+                                dir.mkdir();
+                                File to = new File(dir, resource.getName() + ".gif");
+                                boolean renameTo = resource.renameTo(to);
+                                if (renameTo) {
+                                    ToastUtil.showToast("已保存");
+                                    MediaScannerConnection.scanFile(App.getContext(),
+                                            new String[]{to.getAbsolutePath()},
+                                            new String[]{"image/*"}, null);
+                                }
+                            }
+
+                            @Override
+                            public void onLoadFailed(Exception e, Drawable errorDrawable) {
+                                super.onLoadFailed(e, errorDrawable);
+                                ToastUtil.showToast("下载失败");
+                            }
+                        });
             });
             item_cancel.setOnClickListener(v -> item_cover.setVisibility(View.GONE));
         }

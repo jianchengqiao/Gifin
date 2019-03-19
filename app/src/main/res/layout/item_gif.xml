@@ -17,23 +17,43 @@
         android:background="@color/colorMask"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
-        <TextView
-            android:id="@+id/item_favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="收藏"
-            android:textColor="@color/colorWhite"
-            android:textSize="12sp"
-            tools:ignore="HardcodedText" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/item_favorite"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="收藏"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText,NestedWeights" />
+
+            <TextView
+                android:id="@+id/item_save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/item_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:gravity="center"
             android:text="取消"
             android:textColor="@color/colorWhite"
             android:textSize="12sp"
