@@ -1,3 +1,5 @@
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 ### 微信斗图最快最便捷的方式，没有之一(非 root 时)
 
 ### 实现方式
