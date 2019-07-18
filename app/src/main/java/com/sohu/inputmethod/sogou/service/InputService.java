@@ -46,6 +46,16 @@ public class InputService extends InputMethodService {
     }
 
     @Override
+    public void onInitializeInterface() {
+        super.onInitializeInterface();
+    }
+
+    @Override
+    public AbstractInputMethodImpl onCreateInputMethodInterface() {
+        return super.onCreateInputMethodInterface();
+    }
+
+    @Override
     public View onCreateInputView() {
         if (mInputView == null) {
             mInputView = new InputView(getApplicationContext());
@@ -109,6 +119,16 @@ public class InputService extends InputMethodService {
             }
         });
         return mInputView;
+    }
+
+    @Override
+    public View onCreateCandidatesView() {
+        return super.onCreateCandidatesView();
+    }
+
+    @Override
+    public View onCreateExtractTextView() {
+        return super.onCreateExtractTextView();
     }
 
     @Override

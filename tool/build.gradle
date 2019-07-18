@@ -2,6 +2,7 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 }
 
 sourceCompatibility = "1.8"

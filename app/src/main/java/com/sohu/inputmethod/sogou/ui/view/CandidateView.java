@@ -28,6 +28,7 @@ public class CandidateView extends FrameLayout {
     private RadioButton candidate_radio_1;
     private RadioButton candidate_radio_2;
     private RadioButton candidate_radio_3;
+    private RadioButton candidate_radio_4;
     private TextView candidate_clear;
     private RecyclerView candidate_list;
     private CandidateViewActionListener mActionListener;
@@ -48,12 +49,14 @@ public class CandidateView extends FrameLayout {
         candidate_radio_1 = findViewById(R.id.candidate_radio_1);
         candidate_radio_2 = findViewById(R.id.candidate_radio_2);
         candidate_radio_3 = findViewById(R.id.candidate_radio_3);
+        candidate_radio_4 = findViewById(R.id.candidate_radio_4);
         candidate_clear = findViewById(R.id.candidate_clear);
         candidate_list = findViewById(R.id.candidate_list);
 
         candidate_radio_1.setTag(1);
         candidate_radio_2.setTag(2);
         candidate_radio_3.setTag(3);
+        candidate_radio_4.setTag(4);
 
         candidate_list.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mHistoryAdapter = new HistoryAdapter();

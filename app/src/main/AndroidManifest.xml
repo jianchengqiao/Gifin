@@ -37,8 +37,6 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -81,6 +79,7 @@
                 android:name="android.view.im"
                 android:resource="@xml/method" />
         </service>
+
         <service
             android:name="com.sohu.inputmethod.sogou.service.SwitchService"
             android:enabled="true"

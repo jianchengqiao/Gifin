@@ -4,6 +4,7 @@ import com.sohu.inputmethod.sogou.Constants;
 import com.sohu.inputmethod.sogou.model.BeeModel;
 import com.sohu.inputmethod.sogou.model.DouTuLaModel;
 import com.sohu.inputmethod.sogou.model.DouTuTerminal;
+import com.sohu.inputmethod.sogou.model.SogouModel;
 import com.sohu.inputmethod.sogou.util.SharedPrefUtil;
 
 import java.util.ArrayList;
@@ -34,6 +35,12 @@ public class ResponseFunction<I> implements Function<I, ArrayList<String>> {
             if (((DouTuLaModel) in).data != null && ((DouTuLaModel) in).data.list != null && ((DouTuLaModel) in).data.list.size() > 0) {
                 for (int i = 0; i < size && i < ((DouTuLaModel) in).data.list.size(); i++) {
                     strings.add(((DouTuLaModel) in).data.list.get(i).image_url);
+                }
+            }
+        } else if (in instanceof SogouModel) {
+            if (((SogouModel) in).items != null && ((SogouModel) in).items != null && ((SogouModel) in).items.size() > 0) {
+                for (int i = 0; i < size && i < ((SogouModel) in).items.size(); i++) {
+                    strings.add(((SogouModel) in).items.get(i).picUrl);
                 }
             }
         }

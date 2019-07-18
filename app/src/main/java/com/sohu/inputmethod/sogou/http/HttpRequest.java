@@ -47,6 +47,8 @@ public class HttpRequest {
             getFromTerminal(key, subscriber);
         } else if (source == 3) {
             getFromBee(key, subscriber);
+        } else if (source == 4) {
+            getFromSogou(key+" 表情", subscriber);
         }
     }
 
@@ -67,5 +69,11 @@ public class HttpRequest {
         int size = SharedPrefUtil.getInt(Constants.KEY_SETTING_PAGE_SIZE, 20);
         subscribe(RetrofitFactory.createJsonRetrofit().create(HttpService.class)
                 .getFromTerminal(key,size), subscriber);
+    }
+
+    public void getFromSogou(String key, ResponseSubscriber<ArrayList<String>> subscriber) {
+        int size = SharedPrefUtil.getInt(Constants.KEY_SETTING_PAGE_SIZE, 20);
+        subscribe(RetrofitFactory.createJsonRetrofit().create(HttpService.class)
+                .getFromSogou(key,size), subscriber);
     }
 }

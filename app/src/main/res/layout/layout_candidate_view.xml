@@ -35,6 +35,12 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/candidate_radio_4"
+                style="@style/ButtonStyleLight"
+                android:text="搜狗"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
                 android:id="@+id/candidate_radio_1"
                 style="@style/ButtonStyleLight"
                 android:text="斗图啦"
