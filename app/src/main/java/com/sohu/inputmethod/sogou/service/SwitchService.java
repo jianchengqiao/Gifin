@@ -46,7 +46,7 @@ public class SwitchService extends AccessibilityService {
                 if ("android".equals(packageName.toString())) {
                     List<AccessibilityNodeInfo> infos = root.findAccessibilityNodeInfosByText(getString(R.string.app_name));
                     if (infos != null && infos.size() > 0) {
-                        LogUtil.e("android click");
+                        LogUtil.e("Gifin");
                         infos.get(0).getParent().performAction(ACTION_CLICK);
                         infos.get(0).recycle();
                     }

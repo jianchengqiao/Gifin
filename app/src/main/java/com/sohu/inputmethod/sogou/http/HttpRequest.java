@@ -43,9 +43,7 @@ public class HttpRequest {
         int source = SharedPrefUtil.getInt(Constants.KEY_GIF_SOURCE, 1);
         if (source == 1) {
             getFromDouTuLa(key, subscriber);
-        } else if (source == 2) {
-            getFromTerminal(key, subscriber);
-        } else if (source == 3) {
+        }else if (source == 3) {
             getFromBee(key, subscriber);
         } else if (source == 4) {
             getFromSogou(key+" 表情", subscriber);
@@ -61,14 +59,8 @@ public class HttpRequest {
     }
 
     public void getFromDouTuLa(String key, ResponseSubscriber<ArrayList<String>> subscriber) {
-        subscribe(RetrofitFactory.createJsonRetrofit().create(HttpService.class)
+        subscribe(RetrofitFactory.createStringRetrofit().create(HttpService.class)
                 .getFromDouTuLa(key), subscriber);
-    }
-
-    public void getFromTerminal(String key, ResponseSubscriber<ArrayList<String>> subscriber) {
-        int size = SharedPrefUtil.getInt(Constants.KEY_SETTING_PAGE_SIZE, 20);
-        subscribe(RetrofitFactory.createJsonRetrofit().create(HttpService.class)
-                .getFromTerminal(key,size), subscriber);
     }
 
     public void getFromSogou(String key, ResponseSubscriber<ArrayList<String>> subscriber) {

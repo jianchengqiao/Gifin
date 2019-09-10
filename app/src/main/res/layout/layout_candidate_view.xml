@@ -47,12 +47,6 @@
                 tools:ignore="HardcodedText" />
 
             <RadioButton
-                android:id="@+id/candidate_radio_2"
-                style="@style/ButtonStyleLight"
-                android:text="终结者"
-                tools:ignore="HardcodedText" />
-
-            <RadioButton
                 android:id="@+id/candidate_radio_3"
                 style="@style/ButtonStyleLight"
                 android:text="逗比"

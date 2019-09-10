@@ -1,8 +1,6 @@
 package com.sohu.inputmethod.sogou.http;
 
 import com.sohu.inputmethod.sogou.model.BeeModel;
-import com.sohu.inputmethod.sogou.model.DouTuLaModel;
-import com.sohu.inputmethod.sogou.model.DouTuTerminal;
 import com.sohu.inputmethod.sogou.model.SogouModel;
 
 import java.util.ArrayList;
@@ -17,11 +15,8 @@ import retrofit2.http.Query;
  */
 
 public interface HttpService {
-    @GET("http://www.doutula.com/api/search")
-    Single<DouTuLaModel> getFromDouTuLa(@Query("keyword") String key);
-
-    @GET("http://www.52doutu.cn/api?types=search&action=searchpic")
-    Single<DouTuTerminal> getFromTerminal(@Query("wd") String key, @Query("limit") int size);
+    @GET("http://www.doutula.com/search")
+    Single<String> getFromDouTuLa(@Query("keyword") String key);
 
     @GET("http://www.bee-ji.com/data/search/json?start=0")
     Single<ArrayList<BeeModel>> getFromBee(@Query("w") String key, @Query("size") int size, @Header("Cookie") String header);
