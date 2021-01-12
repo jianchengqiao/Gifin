@@ -1,5 +1,8 @@
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
+
+## 别看了，现在微信直接支持斗图了，Android版本也到11了，兼容不了
+
 ### 微信斗图最快最便捷的方式，没有之一(非 root 时)
 
 ### 实现方式
